@@ -21,7 +21,7 @@ export default function KasirPage() {
   const [showReceipt, setShowReceipt] = useState(false)
   const receiptRef = useRef<HTMLDivElement>(null)
 
-  const handlePrint = useReactToPrint({ contentRef: receiptRef })
+  const handlePrint = useReactToPrint({ content: () => receiptRef.current })
 
   const { data: products = [] } = useQuery({
     queryKey: ['products-kasir', search],
